@@ -1,3 +1,25 @@
 body{
-    background-image: url("../assets/background-image.png")
+    background-image: url("../assets/background-image.png");
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+#main-container{
+    background-color: white;
+    height: 350px;
+    width: 1000px;
+    margin-top: 5%;
+    border-radius: 20px;
+    display: none;
+}
+
+#welcome h1{
+    padding-top: 2%;
+}
+
+#welcome p{
+    padding-top: 5%;
+}
+
+#welcome button{
+    margin-top: 5%;
 }
