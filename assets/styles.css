@@ -3,7 +3,7 @@ body{
     font-family: 'Didact Gothic', sans-serif;
 }
 
-#main-container{
+#welcome-container{
     background-color: white;
     height: 350px;
     width: 1000px;
@@ -22,4 +22,25 @@ body{
 
 #welcome button{
     margin-top: 5%;
+}
+
+#quiz-container{
+    background-color: white;
+    height: 500px;
+    width: 1000px;
+    margin-top: 5%;
+    border-radius: 20px;
+    display: none;
+}
+
+#timer-container{ 
+    margin-top: 1%;
+    display: none;
+}
+
+#timer-div{
+    background-color: white;
+    height:100px;
+    width: 200px;
+    border-radius: 20px;
 }
