@@ -10,46 +10,43 @@
 
 <body>
 
-    <div id="timer-container" class="container-fluid">
-        <div class="row">
-            <div id="timer-div">
+    
 
-            </div>
-        </div>
-    </div>
 
- 
-<!-- Welcome container for code quiz -->
+    <!-- Welcome container for code quiz -->
     <div class="container-fluid" id="welcome-container">
         <div class="row">
-            
-                <div id="welcome" class="col-sm-12">
-                    <h1 class="text-center">Coding Challenge Quiz</h1>
-                    <hr>
-                    <p class="text-center">Welcome to the Coding Challenge Quiz! You will go through 5 multiple choice
-                        questions to test your coding knowledge. Be careful...for each question that you get wrong, time
-                        is deducted from the timer. Let's begin!</p>
 
-                    <div class="d-flex justify-content-center">
-                        <button type="button" id="btnStartQuiz" class="btn btn-primary btn-lg">Start Quiz</button>
-                    </div>
+            <div id="welcome" class="col-sm-12">
+                <h1 class="text-center">Coding Challenge Quiz</h1>
+                <hr>
+                <p class="text-center">Welcome to the Coding Challenge Quiz! You will go through 5 multiple choice
+                    questions to test your coding knowledge. Be careful...for each question that you get wrong, time
+                    is deducted from the timer. Let's begin!</p>
+
+                <div class="d-flex justify-content-center">
+                    <button type="button" id="btnStartQuiz" class="btn btn-primary btn-lg">Start Quiz</button>
                 </div>
+            </div>
 
-                 
-    
-           
+
+
+
         </div>
 
     </div>
-   <!-- Welcome container for code quiz -->
-   <div class="container-fluid" id="quiz-container">
-    <div class="row">
-        
-          
-       
-    </div>
+    <!-- Welcome container for code quiz -->
+    <div class="container-fluid" id="quiz-container">
+        <div class="row">
+            <div id="timer-div">
+                    <p id="time-remaining">Time Remaining: </p>
+                    <p id="minutes">25</p>
+                    <p id="seconds">00</p>
+            </div>
+                
+        </div>
 
-</div>
+    </div>
 
 
 
@@ -62,7 +59,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="questions.js"></script>
     <script src="script.js"></script>
 </body>

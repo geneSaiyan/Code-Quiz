@@ -33,14 +33,20 @@ body{
     display: none;
 }
 
-#timer-container{ 
-    margin-top: 1%;
-    display: none;
+#timer-div{
+    margin: 20px 10px 20px 10px;
+}
+#time-remaining{
+    float:left;
+   margin-right: 10px;
 }
 
-#timer-div{
-    background-color: white;
-    height:100px;
-    width: 200px;
-    border-radius: 20px;
-}
+#minutes {
+    font-size: 24px;
+    float: left;
+  }
+  
+  #seconds {
+    font-size: 18px;
+    float: left;
+  }
