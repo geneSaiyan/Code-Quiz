@@ -10,7 +10,7 @@
 
 <body>
 
-    
+
 
 
     <!-- Welcome container for code quiz -->
@@ -22,16 +22,12 @@
                 <hr>
                 <p class="text-center">Welcome to the Coding Challenge Quiz! You will go through 5 multiple choice
                     questions to test your coding knowledge. Be careful...for each question that you get wrong, time
-                    is deducted from the timer. Let's begin!</p>
+                    is deducted from the timer <strong>(You have 5 min to complete the quiz)</strong>. Let's begin!</p>
 
                 <div class="d-flex justify-content-center">
                     <button type="button" id="btnStartQuiz" class="btn btn-primary btn-lg">Start Quiz</button>
                 </div>
             </div>
-
-
-
-
         </div>
 
     </div>
@@ -39,9 +35,19 @@
     <div class="container-fluid" id="quiz-container">
         <div class="row">
             <div id="timer-div">
-                    <p id="time-remaining">Time Remaining: </p>
-                    <p id="minutes">25</p>
-                    <p id="seconds">00</p>
+                <p id="time-remaining">Time Remaining: </p>
+                <p id="minutes"></p>
+                <p id="seconds"></p>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-12">
+                    <div class="card">
+                            <div class="card-body text-center">
+                              <p>What are the html tags for headings?</p>
+                            </div>
+                          </div>
             </div>
                 
         </div>
