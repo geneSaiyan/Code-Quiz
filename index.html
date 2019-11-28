@@ -36,26 +36,46 @@
         <div class="row">
             <div id="timer-div">
                 <p id="time-remaining">Time Remaining: </p>
-                <p id="minutes"></p>
-                <p id="seconds"></p>
+                <p id="minutes">00</p>
+                <p id="seconds">00</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body text-center" id="question-container">
+                        <p id="question">What are the html tags for headings?</p>
+                    </div>
+                    
+                </div>
             </div>
 
         </div>
         <div class="row">
-            <div class="col-12">
-                    <div class="card">
-                            <div class="card-body text-center">
-                              <p>What are the html tags for headings?</p>
-                            </div>
-                          </div>
+            <div class="col-sm-12">
+                    <div id="options">
+                            <button type="button" class="btn btn-secondary">Option 1</button>
+                            <button type="button" class="btn btn-secondary">Option 2</button>
+                            <button type="button" class="btn btn-secondary">Option 3</button>
+                            <button type="button" class="btn btn-secondary">Option 4</button>
+                        </div>
             </div>
-                
+           
+        </div>
+        
+        <div class="row">
+<div class="col-sm-12">
+<div id="score-container">
+        <button type="button" class="btn btn-danger" id="next-button">Next</button>
+Score: <span id="score">12</span>
+</div>
+</div>
         </div>
 
     </div>
 
 
-
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
