@@ -52,7 +52,7 @@ function getFormattedSeconds() {
 
 //Function created to format setting the timer
 function setTime() {
-  var minutes = 5;
+  var minutes = 1;
 
   clearInterval(interval);
   totalSeconds = minutes * 60;
@@ -65,6 +65,7 @@ function renderTime() {
 
   if (secondsElapsed >= totalSeconds) {
     stopTimer();
+    $("#quiz-container").fadeOut(2000);
   }
 }
 
@@ -84,6 +85,11 @@ function stopTimer() {
   setTime();
   renderTime();
 }
+
+function subtractTime() {
+  secondsElapsed+=10;
+}
+
 
 //Setting questions Object variable 
 var questionsObj = {
@@ -106,11 +112,14 @@ var questionsObj = {
       option4.textContent = this.questions[this.index].options[3];
       this.scoreCard();
     }
-    else {
-
+    else{
+      $("#quiz-container").fadeOut(2000);
+      
       //Do something after quiz is over
-
     }
+
+   
+  
   },
   nextQuestion: function () {
     this.index++;
@@ -123,18 +132,22 @@ var questionsObj = {
     if(id[id.length-1]==this.questions[this.index].answer){
       this.score++;
       this.scoreCard();
+      overlayText.textContent = "CORRECT";
+      overlayText.style.color = "green";
       $("#overlay").fadeIn(1000);
       $("#overlay").fadeOut(1000);
     }
     else{
-
+      overlayText.textContent = "WRONG";
+      overlayText.style.color = "red";
       $("#overlay").fadeIn(1000);
       $("#overlay").fadeOut(1000);
+      subtractTime();
     }
 },
   score: 0,
   scoreCard: function () {
-    scoreCard.textContent = this.questions.length + "/" + this.score;
+    scoreCard.textContent = this.score + "/" + this.questions.length  ;
   }
 
 

@@ -10,35 +10,34 @@
 
 <body>
 
-
-        <div id="overlay">
-            <p id="overlay-text">CORRECT</p>
-        </div>
+<!-- Overlay for Correct or Wrong answers -->
+    <div id="overlay">
+        <p id="overlay-text"></p>
+    </div>
 
     <!-- Welcome container for code quiz -->
     <div class="container-fluid" id="welcome-container">
         <div class="row">
-
             <div id="welcome" class="col-sm-12">
                 <h1 class="text-center">Coding Challenge Quiz</h1>
                 <hr>
                 <p class="text-center">Welcome to the Coding Challenge Quiz! You will go through 4 multiple choice
                     questions to test your coding knowledge. Be careful...for each question that you get wrong, time
-                    is deducted from the timer <strong>(You have 5 min to complete the quiz)</strong>. Let's begin!</p>
+                    is deducted from the timer <strong>(You have 1 min to complete the quiz)</strong>. Let's begin!</p>
 
                 <div class="d-flex justify-content-center">
                     <button type="button" id="btnStartQuiz" class="btn btn-primary btn-lg">Start Quiz</button>
                 </div>
             </div>
         </div>
-
     </div>
-    <!-- Welcome container for code quiz -->
+
+    <!-- Container for quiz questions -->
     <div class="container-fluid" id="quiz-container">
         <div class="row">
             <div id="timer-div">
                 <p id="time-remaining">Time Remaining: </p>
-                <p id="minutes">00</p>
+                <p id="minutes">01</p>
                 <p id="seconds">00</p>
             </div>
         </div>
@@ -48,35 +47,32 @@
                     <div class="card-body text-center" id="question-container">
                         <p id="question"></p>
                     </div>
-                    
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="options">
+                    <button type="button" id="op1" class="btn btn-secondary" onclick="button(this)">Option 1</button>
+                    <button type="button" id="op2" class="btn btn-secondary" onclick="button(this)">Option 2</button>
+                    <button type="button" id="op3" class="btn btn-secondary" onclick="button(this)">Option 3</button>
+                    <button type="button" id="op4" class="btn btn-secondary" onclick="button(this)">Option 4</button>
                 </div>
             </div>
 
         </div>
         <div class="row">
             <div class="col-sm-12">
-                    <div id="options">
-                            <button type="button" id="op1" class="btn btn-secondary" onclick="button(this)">Option 1</button>
-                            <button type="button" id="op2" class="btn btn-secondary" onclick="button(this)">Option 2</button>
-                            <button type="button" id="op3" class="btn btn-secondary" onclick="button(this)">Option 3</button>
-                            <button type="button" id="op4" class="btn btn-secondary" onclick="button(this)">Option 4</button>
-                        </div>
+                <div id="score-container">
+                    Score: <span id="score">0</span>
+                </div>
             </div>
-           
         </div>
-        
-        <div class="row">
-<div class="col-sm-12">
-<div id="score-container">
-Score: <span id="score">0</span>
-</div>
-</div>
-        </div>
-
     </div>
 
 
-    
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
