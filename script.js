@@ -12,6 +12,7 @@ var option2 = document.getElementById("op2");
 var option3 = document.getElementById("op3");
 var option4 = document.getElementById("op4");
 var overlayText = document.getElementById("overlay-text");
+var finalScore = document.getElementById("final-score");
 
 //Setting seconds and interval variables
 var totalSeconds = 0;
@@ -52,7 +53,7 @@ function getFormattedSeconds() {
 
 //Function created to format setting the timer
 function setTime() {
-  var minutes = 1;
+  var minutes = 0.5;
 
   clearInterval(interval);
   totalSeconds = minutes * 60;
@@ -65,7 +66,12 @@ function renderTime() {
 
   if (secondsElapsed >= totalSeconds) {
     stopTimer();
-    $("#quiz-container").fadeOut(2000);
+    $("#quiz-container").fadeOut(500);
+    overlayText.textContent = "TIME EXPIRED !";
+      overlayText.style.color = "gold";
+      $("#overlay").fadeIn(1000);
+      $("#overlay").fadeOut(2000);
+      $("#high-score-container").fadeIn(2000);
   }
 }
 
@@ -95,7 +101,7 @@ function subtractTime() {
 var questionsObj = {
   questions: [
     { q: 'What HTML tag is used to enter a new line into HTML contents?', options: ['<br>', '<h1>', '<p>', '<hr>'], answer: 1 },
-    { q: 'What HTML tag is used for the largest heading?', options: ['<h8>', '<h2>', '<h1>', '<h4>'], answer: 3 },
+    { q: 'The condition in an if / else statement is enclosed within ____.', options: ['quotes', 'double quotes', 'parentheses', 'curly brackets'], answer: 4 },
 
     { q: 'Inside which HTML element do we put the JavaScript?', options: ['<scripting>', '<script>', '<js>', '<javascript>'], answer: 2},
 
@@ -113,7 +119,9 @@ var questionsObj = {
       this.scoreCard();
     }
     else{
-      $("#quiz-container").fadeOut(2000);
+      stopTimer();
+      $("#quiz-container").fadeOut(1000);
+      $("#high-score-container").fadeIn(2000);
       
       //Do something after quiz is over
     }
@@ -147,7 +155,8 @@ var questionsObj = {
 },
   score: 0,
   scoreCard: function () {
-    scoreCard.textContent = this.score + "/" + this.questions.length  ;
+    scoreCard.textContent = (this.score / this.questions.length) * 100 ;
+    finalScore.textContent = scoreCard.textContent;
   }
 
 
