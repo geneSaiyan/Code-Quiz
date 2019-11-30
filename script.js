@@ -13,6 +13,13 @@ var option3 = document.getElementById("op3");
 var option4 = document.getElementById("op4");
 var overlayText = document.getElementById("overlay-text");
 var finalScore = document.getElementById("final-score");
+var initials = document.getElementById("initials-input");
+var initialSubmit = document.getElementById("btn-initials");
+var scoreList = document.getElementById("score-list");
+var quizPlayers = [];
+
+//Initialize score list
+init();
 
 //Setting seconds and interval variables
 var totalSeconds = 0;
@@ -123,10 +130,7 @@ var questionsObj = {
       $("#quiz-container").fadeOut(1000);
       $("#high-score-container").fadeIn(2000);
       
-      //Do something after quiz is over
     }
-
-   
   
   },
   nextQuestion: function () {
@@ -179,13 +183,59 @@ startButton.addEventListener("click", function () {
   //Start the timer
   startTimer();
 
-  
   window.onload = questionsObj.load();
-
-
- 
-
-  
 
 });
 
+function renderScoreList() {
+  scoreList.innerHTML = "";
+
+  // Render a new li for each player score
+  for (var i = 0; i < quizPlayers.length; i++) {
+    var player = quizPlayers[i];
+
+    var li = document.createElement("li");
+    li.textContent = player;
+    li.setAttribute("data-index", i);
+
+    scoreList.appendChild(li);
+  }
+}
+
+function init() {
+  // Get stored  from localStorage
+  // Parsing the JSON string to an object
+  var storedPlayers = JSON.parse(localStorage.getItem("quizPlayers"));
+
+  // If todos were retrieved from localStorage, update the todos array to it
+  if (storedPlayers !== null) {
+    quizPlayers = storedPlayers;
+  }
+
+  // Render playerlist to the DOM
+  renderScoreList();
+}
+
+function storeQuizPlayers() {
+  // Stringify and set "todos" key in localStorage to todos array
+  localStorage.setItem("quizPlayers", JSON.stringify(quizPlayers));
+}
+
+initialSubmit.addEventListener("click", function(event) {
+  event.preventDefault();
+
+  var inputText = initials.value.trim();
+
+  // Return from function early if submitted todoText is blank
+  if (inputText === "") {
+    return;
+  }
+
+  // Add new todoText to todos array, clear the input
+  quizPlayers.push(inputText);
+  initials.value = "";
+
+  // Store updated todos in localStorage, re-render the list
+  storeQuizPlayers();
+  renderScoreList();
+});
