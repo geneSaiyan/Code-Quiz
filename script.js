@@ -16,6 +16,11 @@ var finalScore = document.getElementById("final-score");
 var initials = document.getElementById("initials-input");
 var initialSubmit = document.getElementById("btn-initials");
 var scoreList = document.getElementById("score-list");
+
+// var quizPlayers = [{
+//   initialsText: initials.value.trim(),
+//   score: scoreCard.value.trim()
+// }];
 var quizPlayers = [];
 
 //Initialize score list
@@ -194,11 +199,11 @@ function renderScoreList() {
   for (var i = 0; i < quizPlayers.length; i++) {
     var player = quizPlayers[i];
 
-    var li = document.createElement("li");
-    li.textContent = player;
-    li.setAttribute("data-index", i);
+    var pTag = document.createElement("p");
+    pTag.textContent = player;
+    pTag.setAttribute("data-index", i);
 
-    scoreList.appendChild(li);
+    scoreList.appendChild(pTag);
   }
 }
 

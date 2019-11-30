@@ -10,7 +10,7 @@
 
 <body>
 
-<!-- Overlay for Correct or Wrong answers -->
+    <!-- Overlay for Correct or Wrong answers -->
     <div id="overlay">
         <p id="overlay-text"></p>
     </div>
@@ -23,7 +23,8 @@
                 <hr>
                 <p class="text-center">Welcome to the Coding Challenge Quiz! You will go through 4 multiple choice
                     questions to test your coding knowledge. Be careful...for each question that you get wrong, time
-                    is deducted from the timer <strong>(You have 30 seconds to complete the quiz)</strong>. Let's begin!</p>
+                    is deducted from the timer <strong>(You have 30 seconds to complete the quiz)</strong>. Let's begin!
+                </p>
 
                 <div class="d-flex justify-content-center">
                     <button type="button" id="btnStartQuiz" class="btn btn-primary btn-lg">Start Quiz</button>
@@ -71,28 +72,28 @@
         </div>
     </div>
 
-<!-- Quiz over/ Highscore container -->
-<div class="container-fluid" id="high-score-container">
-<h1 class="text-center">Your score is <span id="final-score"></span></h1>
-<hr>
-<div class="row ">
-<div class="col-sm-12">
-        <form class="form-inline d-flex justify-content-center">
-                <div class="form-group mx-sm-3 mb-2">
-                    <label for="initials-input" style="margin-right: 5px">Enter Initials: </label>
-                  <input type="text" class="form-control" id="initials-input" >
-                </div>
-                <button type="submit" class="btn btn-primary  mb-2" id="btn-initials">Submit</button>
-              </form>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-12">
-        <ul id="score-list"></ul>
-</div>
-</div>
+    <!-- Quiz over/ Highscore container -->
+    <div class="container-fluid" id="high-score-container">
+        <h1 class="text-center">Your score is <span id="final-score"></span></h1>
+        <hr>
+        <div class="row ">
+            <div class="col-sm-12">
+                <form class="form-inline d-flex justify-content-center">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="initials-input" style="margin-right: 5px">Enter Initials: </label>
+                        <input type="text" class="form-control" id="initials-input">
+                    </div>
+                    <button type="submit" class="btn btn-primary  mb-2" id="btn-initials">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="score-list"></div>
+            </div>
+        </div>
 
-</div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
