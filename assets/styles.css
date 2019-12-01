@@ -87,7 +87,7 @@ body{
 
   #high-score-container{
     background-color: white;
-    height: 600px;
+    height: 800px;
     width: 1000px;
     margin-top: 5%;
     border-radius: 20px;
@@ -102,4 +102,6 @@ body{
     text-align: center;
 }
 
-
+#btn-restart{
+    display: none;
+}

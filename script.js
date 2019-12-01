@@ -11,16 +11,19 @@ var option1 = document.getElementById("op1");
 var option2 = document.getElementById("op2");
 var option3 = document.getElementById("op3");
 var option4 = document.getElementById("op4");
+var wrongAudio = document.getElementById("wrongAudio");
 var overlayText = document.getElementById("overlay-text");
 var finalScore = document.getElementById("final-score");
 var initials = document.getElementById("initials-input");
 var initialSubmit = document.getElementById("btn-initials");
+var initialLabel = document.getElementById("initial-label");
 var scoreList = document.getElementById("score-list");
+var restartButton = document.getElementById("btn-restart");
 
-// var quizPlayers = [{
-//   initialsText: initials.value.trim(),
-//   score: scoreCard.value.trim()
-// }];
+function playWrong(){
+  wrongAudio.play();
+}
+
 var quizPlayers = [];
 
 //Initialize score list
@@ -155,6 +158,7 @@ var questionsObj = {
       $("#overlay").fadeOut(1000);
     }
     else{
+     playWrong();
       overlayText.textContent = "WRONG";
       overlayText.style.color = "red";
       $("#overlay").fadeIn(1000);
@@ -167,9 +171,6 @@ var questionsObj = {
     scoreCard.textContent = (this.score / this.questions.length) * 100 ;
     finalScore.textContent = scoreCard.textContent;
   }
-
-
-
 }
 
 function button(ele){
@@ -177,25 +178,19 @@ function button(ele){
   questionsObj.nextQuestion();
 }
 
-
 startButton.addEventListener("click", function () {
-  // document.getElementById("overlay").style.display = "block";
   //fade out the welcome container and fade in the quiz container
   $("#welcome-container").fadeOut(100);
   $("#quiz-container").fadeIn(2000);
-  // $("#overlay").fadeOut(2000);
-
   //Start the timer
   startTimer();
-
   window.onload = questionsObj.load();
-
 });
 
 function renderScoreList() {
   scoreList.innerHTML = "";
 
-  // Render a new li for each player score
+  // Render a new p for each player score
   for (var i = 0; i < quizPlayers.length; i++) {
     var player = quizPlayers[i];
 
@@ -243,4 +238,12 @@ initialSubmit.addEventListener("click", function(event) {
   // Store updated todos in localStorage, re-render the list
   storeQuizPlayers();
   renderScoreList();
+  initials.style.display = "none";
+  initialSubmit.style.display = "none";
+  initialLabel.style.display = "none";
+  restartButton.style.display = "inline";
+});
+
+restartButton.addEventListener("click", function(){
+  location.reload();
 });

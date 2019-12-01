@@ -10,6 +10,10 @@
 
 <body>
 
+    <audio id="wrongAudio">
+        <source src="assets/CrowdBoo.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- Overlay for Correct or Wrong answers -->
     <div id="overlay">
         <p id="overlay-text"></p>
@@ -78,12 +82,14 @@
         <hr>
         <div class="row ">
             <div class="col-sm-12">
-                <form class="form-inline d-flex justify-content-center">
+                <form class="form-inline d-flex justify-content-center" >
+                   
                     <div class="form-group mx-sm-3 mb-2">
-                        <label for="initials-input" style="margin-right: 5px">Enter Initials: </label>
+                        <label for="initials-input" style="margin-right: 5px" id="initial-label">Enter Initials: </label>
                         <input type="text" class="form-control" id="initials-input">
                     </div>
-                    <button type="submit" class="btn btn-primary  mb-2" id="btn-initials">Submit</button>
+                    <button type="submit" class="btn btn-primary  mb-2" style="margin-right: 5px" id="btn-initials">Submit</button>
+                    <button type="submit" class="btn btn-success  btn-lg" id="btn-restart">Restart Quiz</button>
                 </form>
             </div>
         </div>
@@ -94,6 +100,8 @@
         </div>
 
     </div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
