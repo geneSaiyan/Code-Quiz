@@ -20,10 +20,12 @@ var initialLabel = document.getElementById("initial-label");
 var scoreList = document.getElementById("score-list");
 var restartButton = document.getElementById("btn-restart");
 
+//Function to play audio when a user selects the wrong answer
 function playWrong(){
   wrongAudio.play();
 }
 
+//Empty array for users who take the quiz
 var quizPlayers = [];
 
 //Initialize score list
@@ -46,8 +48,7 @@ function getFormattedMinutes() {
     formattedMinutes = "0" + minutesLeft;
   } else {
     formattedMinutes = minutesLeft;
-  }
-
+  }  
   return formattedMinutes;
 }
 
@@ -62,12 +63,12 @@ function getFormattedSeconds() {
   } else {
     formattedSeconds = secondsLeft;
   }
-
   return formattedSeconds;
 }
 
 //Function created to format setting the timer
 function setTime() {
+  //Set timer to 30 seconds
   var minutes = 0.5;
 
   clearInterval(interval);
@@ -79,6 +80,7 @@ function renderTime() {
   minutesDisplay.textContent = getFormattedMinutes();
   secondsDisplay.textContent = getFormattedSeconds();
 
+  //If time runs out do the following
   if (secondsElapsed >= totalSeconds) {
     stopTimer();
     $("#quiz-container").fadeOut(500);
@@ -107,10 +109,10 @@ function stopTimer() {
   renderTime();
 }
 
+//Function to subtract 10 seconds each time user answers incorrectly
 function subtractTime() {
   secondsElapsed+=10;
 }
-
 
 //Setting questions Object variable 
 var questionsObj = {
@@ -124,6 +126,7 @@ var questionsObj = {
 
   ],
   index: 0,
+  //Function that loads each question and the possible answers
   load: function () {
     if (this.index <= this.questions.length -1) {
       questionSelection.textContent = this.index + 1 + ". " + this.questions[this.index].q;
@@ -134,20 +137,21 @@ var questionsObj = {
       this.scoreCard();
     }
     else{
+      //When the user is done answering all of the questions do the following
       stopTimer();
       $("#quiz-container").fadeOut(1000);
-      $("#high-score-container").fadeIn(2000);
-      
+      $("#high-score-container").fadeIn(2000);  
     }
-  
   },
+  //Function that goes to the next question
   nextQuestion: function () {
     this.index++;
     this.load();
   },
+  //Function that checks if the answer is correct or wrong
   checkAnswer:function(ele){
                  
-    var id=ele.id.split('');
+    var id = ele.id.split('');
     
     if(id[id.length-1]==this.questions[this.index].answer){
       this.score++;
@@ -173,11 +177,13 @@ var questionsObj = {
   }
 }
 
+//Function that is used for each possible answer selection
 function button(ele){
   questionsObj.checkAnswer(ele);
   questionsObj.nextQuestion();
 }
 
+//Start button that initiates the quiz
 startButton.addEventListener("click", function () {
   //fade out the welcome container and fade in the quiz container
   $("#welcome-container").fadeOut(100);
@@ -221,6 +227,7 @@ function storeQuizPlayers() {
   localStorage.setItem("quizPlayers", JSON.stringify(quizPlayers));
 }
 
+//Submit initials afte quiz is over
 initialSubmit.addEventListener("click", function(event) {
   event.preventDefault();
 
@@ -244,6 +251,7 @@ initialSubmit.addEventListener("click", function(event) {
   restartButton.style.display = "inline";
 });
 
+//Restarts the quiz
 restartButton.addEventListener("click", function(){
   location.reload();
 });
